@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "UserProfile",
+      "description": "User career assessment profile and preferences",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User unique identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Candidate display name"
+        },
+        "careerStage": {
+          "type": "string",
+          "description": "Selected career stage"
+        },
+        "setting": {
+          "type": "string",
+          "description": "Current professional setting"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last update"
+        }
+      },
+      "required": ["userId", "name"]
+    },
+    "pathwayReview": {
+      "title": "PathwayReview",
+      "description": "User review decision for a career pathway candidate",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID"
+        },
+        "pathwayId": {
+          "type": "string",
+          "description": "Pathway identifier"
+        },
+        "state": {
+          "type": "string",
+          "enum": ["unreviewed", "pursuing", "interesting", "deferred", "not-a-fit"],
+          "description": "Candidate evaluation state"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp"
+        }
+      },
+      "required": ["userId", "pathwayId", "state"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "userProfile",
+      "description": "User profile document storing personal candidate metadata"
+    },
+    "/users/{userId}/pathwayReviews/{reviewId}": {
+      "schema": "pathwayReview",
+      "description": "Pathway review decisions saved by the user"
+    }
+  }
+}

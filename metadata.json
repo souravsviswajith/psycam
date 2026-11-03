@@ -1,0 +1,6 @@
+{
+  "name": "Career Intelligence",
+  "description": "Criterion-referenced career intelligence and psychometric assessment instrument with explainable pathway mapping and unassessed construct tracking.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
